@@ -1,0 +1,128 @@
+[
+  {
+    "domain": "postman.com",
+    "company_overview": "Postman is an AI-native API platform that helps companies make their APIs partner‑ready by providing discoverability, documentation, and end‑to‑end integration tools. It enables API owners to build, deploy, and measure revenue‑aligned partner programs at scale.",
+    "target_audience": "API owners and partner program teams in industries such as insurance, banking, telecom, healthcare, media, logistics, and technology who need to scale partner APIs.",
+    "contact_points": [
+      {
+        "email": "help@postman.com",
+        "type": "generic",
+        "source_url": "https://www.postman.com/solutions/partner-api-management/"
+      },
+      {
+        "email": "info-jp@postman.com",
+        "type": "generic",
+        "source_url": "https://postman.com"
+      },
+      {
+        "email": "info@postman.com",
+        "type": "generic",
+        "source_url": "https://postman.com"
+      }
+    ],
+    "leadership": [
+      {
+        "name": "Abhinav Asthana",
+        "role": "CEO and co-founder",
+        "linkedin_url": null
+      },
+      {
+        "name": "Ankit Sobti",
+        "role": "Co-founder",
+        "linkedin_url": null
+      },
+      {
+        "name": "Abhijit Kane",
+        "role": "Co-founder",
+        "linkedin_url": null
+      }
+    ],
+    "confidence_score": 0.92,
+    "source_pages": [
+      "https://www.postman.com/",
+      "https://www.postman.com/company/contact-us/",
+      "https://www.postman.com/company/about-postman/",
+      "https://www.postman.com/company/contact-sales/",
+      "https://www.postman.com/solutions/partner-api-management/"
+    ],
+    "status": "success",
+    "errors": []
+  },
+  {
+    "domain": "supabase.com",
+    "company_overview": "Supabase is an open‑source backend platform that provides managed PostgreSQL, authentication, storage, real‑time subscriptions, and serverless functions for developers to build and scale applications quickly.",
+    "target_audience": "Supabase targets developers, startups, agencies, enterprises, B2B SaaS, fintech, and healthcare organizations building web and mobile applications, especially those using PostgreSQL or looking for a Firebase alternative.",
+    "contact_points": [
+      {
+        "email": "legal@supabase.com",
+        "type": "generic",
+        "source_url": "https://supabase.com/contact-us"
+      },
+      {
+        "email": "privacy@supabase.com",
+        "type": "generic",
+        "source_url": "https://supabase.com/contact-us"
+      },
+      {
+        "email": "abuse@supabase.com",
+        "type": "generic",
+        "source_url": "https://supabase.com/contact-us"
+      },
+      {
+        "email": "security@supabase.com",
+        "type": "generic",
+        "source_url": "https://supabase.com/contact-us"
+      },
+      {
+        "email": "help-events@supabase.com",
+        "type": "generic",
+        "source_url": "https://supabase.com/contact-us"
+      }
+    ],
+    "leadership": [
+      {
+        "name": "Tracy Lane",
+        "role": "General Counsel of Supabase, Inc.",
+        "linkedin_url": null
+      },
+      {
+        "name": "Idan Gazit",
+        "role": "Senior Director of Research, GitHub Next",
+        "linkedin_url": null
+      }
+    ],
+    "confidence_score": 0.92,
+    "source_pages": [
+      "https://supabase.com",
+      "https://supabase.com/contact-us",
+      "https://supabase.com/contact/sales",
+      "https://supabase.com/solutions/enterprise",
+      "https://supabase.com/pricing"
+    ],
+    "status": "success",
+    "errors": []
+  },
+  {
+    "domain": "vapi.ai",
+    "company_overview": "Vapi offers a platform for building and deploying voice AI agents that support natural conversation, telephony integration, and customizable models. The service provides low‑latency, multilingual interactions with full API access for developers and a user‑friendly UI for non‑technical users.",
+    "target_audience": "Developers, engineers, and businesses seeking to implement voice AI solutions with customizable models and telephony capabilities.",
+    "contact_points": [],
+    "leadership": [
+      {
+        "name": "Jason Mitura",
+        "role": "VP of Software Development",
+        "linkedin_url": null
+      }
+    ],
+    "confidence_score": 0.71,
+    "source_pages": [
+      "https://vapi.ai",
+      "https://vapi.ai/sales",
+      "https://vapi.ai/pricing",
+      "https://vapi.ai/customers",
+      "https://vapi.ai/platform"
+    ],
+    "status": "success",
+    "errors": []
+  }
+]
