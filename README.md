@@ -11,7 +11,7 @@
 [![Tests](https://img.shields.io/badge/Tests-96%20Passed-success)](#testing)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](#license)
 
-**SoftwareBrio AI Engineer Intern — Practical Take-Home Assignment**
+
 
 BrioLeadEnricher is an autonomous web intelligence pipeline that accepts a list of company domains and transforms public web content into **structured, evidence-grounded company intelligence**.
 
