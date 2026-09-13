@@ -1,59 +1,91 @@
-# BrioLeadEnricher
+# ⚡ BrioLeadEnricher
 
-## Autonomous Lead Enrichment Agent
+## 🤖 Autonomous Lead Enrichment Agent
 
-AI-powered autonomous company lead enrichment built in Python for the **SoftwareBrio AI Engineer Intern Practical Take-Home Assignment**.
+> **Turn company domains into verified, structured lead intelligence — autonomously.**
 
-BrioLeadEnricher accepts a list of company domains, autonomously browses their public websites, discovers relevant pages, cleans the retrieved content, extracts structured company intelligence using an LLM, verifies extracted information against source evidence, calculates an evidence-grounded confidence score, and produces machine-readable JSON output.
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Pydantic](https://img.shields.io/badge/Structured%20Output-Pydantic-E92063)](https://docs.pydantic.dev/)
+[![Playwright](https://img.shields.io/badge/Browser-Playwright-2EAD33?logo=playwright&logoColor=white)](https://playwright.dev/)
+[![LLM](https://img.shields.io/badge/LLM-Groq%20%7C%20OpenAI%20%7C%20Gemini-8B5CF6)](#llm-providers)
+[![Tests](https://img.shields.io/badge/Tests-96%20Passed-success)](#testing)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](#license)
 
-The implementation is built on top of the existing **DAVE** scraping and extraction engine, extending it with an autonomous, domain-level lead enrichment workflow.
+**SoftwareBrio AI Engineer Intern — Practical Take-Home Assignment**
+
+BrioLeadEnricher is an autonomous web intelligence pipeline that accepts a list of company domains and transforms public web content into **structured, evidence-grounded company intelligence**.
+
+It autonomously discovers relevant pages, handles JavaScript-rendered websites, cleans webpage content, extracts structured information with an LLM, verifies extracted evidence programmatically, calculates confidence, isolates failures, and produces machine-readable JSON.
 
 ---
 
-## SoftwareBrio Assignment
-
-This project addresses the following problem:
-
-> Given a list of company domains, autonomously retrieve public web content and produce structured, evidence-grounded company intelligence without requiring human intervention.
-
-The agent is designed to handle:
-
-- JavaScript-rendered websites
-- Multiple relevant company pages
-- Missing information
-- 404 pages
-- Timeouts
-- Rate limits
-- LLM failures
-- Invalid domains
-- Bot-blocked pages
-- Partial enrichment
-- Evidence verification
-- Structured output validation
-
-The goal is not simply to scrape webpages.
-
-The goal is to build a reliable pipeline that transforms:
+# ✨ What It Does
 
 ```text
-Company Domain
-      ↓
-Website Discovery
-      ↓
-Relevant Page Retrieval
-      ↓
-Content Cleaning
-      ↓
-LLM Extraction
-      ↓
-Evidence Verification
-      ↓
-Confidence Scoring
-      ↓
-Structured Lead Intelligence
-````
-
----
+                         ┌───────────────────────┐
+                         │   🌐 COMPANY DOMAIN   │
+                         │      postman.com       │
+                         └───────────┬───────────┘
+                                     │
+                                     ▼
+                         ┌───────────────────────┐
+                         │   🔎 AUTONOMOUS       │
+                         │      DISCOVERY        │
+                         │                       │
+                         │  About • Team • Sales │
+                         │  Contact • Pricing    │
+                         └───────────┬───────────┘
+                                     │
+                                     ▼
+                         ┌───────────────────────┐
+                         │   🕷️ SMART BROWSING   │
+                         │                       │
+                         │   HTTP / Playwright   │
+                         │   Retries / Caching   │
+                         └───────────┬───────────┘
+                                     │
+                                     ▼
+                         ┌───────────────────────┐
+                         │   🧹 CONTENT CLEANER  │
+                         │                       │
+                         │ HTML → Clean Text    │
+                         │ Remove JS / CSS / SVG │
+                         └───────────┬───────────┘
+                                     │
+                                     ▼
+                         ┌───────────────────────┐
+                         │   🧠 STRUCTURED LLM   │
+                         │       EXTRACTION     │
+                         │                       │
+                         │ Company • ICP • Email │
+                         │ Leadership • LinkedIn│
+                         └───────────┬───────────┘
+                                     │
+                                     ▼
+                         ┌───────────────────────┐
+                         │   🛡️ EVIDENCE CHECK   │
+                         │                       │
+                         │ "Does the source     │
+                         │  actually support it?"│
+                         └───────────┬───────────┘
+                                     │
+                                     ▼
+                         ┌───────────────────────┐
+                         │   📊 CONFIDENCE       │
+                         │       SCORING         │
+                         │                       │
+                         │ Completeness          │
+                         │ Grounding             │
+                         │ Source Depth          │
+                         │ High-value Signals    │
+                         └───────────┬───────────┘
+                                     │
+                                     ▼
+                         ┌───────────────────────┐
+                         │   📦 STRUCTURED JSON  │
+                         │                       │
+                         │  data/output.json     │
+                         └───────────────────────┘
 
 # Key Features
 
