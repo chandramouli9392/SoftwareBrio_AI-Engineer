@@ -1,4 +1,3 @@
-````markdown
 # BrioLeadEnricher
 
 ## Autonomous Lead Enrichment Agent
