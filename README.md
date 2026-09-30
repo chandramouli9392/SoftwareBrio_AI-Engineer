@@ -1,114 +1,173 @@
+<div align="center">
+
 # ⚡ BrioLeadEnricher
 
-## 🤖 Autonomous Lead Enrichment Agent
+### 🤖 Autonomous Lead Enrichment Agent
 
-> **Turn company domains into verified, structured lead intelligence — autonomously.**
+**Turn company domains into verified, structured lead intelligence — autonomously.**
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Pydantic](https://img.shields.io/badge/Structured%20Output-Pydantic-E92063)](https://docs.pydantic.dev/)
-[![Playwright](https://img.shields.io/badge/Browser-Playwright-2EAD33?logo=playwright&logoColor=white)](https://playwright.dev/)
-[![LLM](https://img.shields.io/badge/LLM-Groq%20%7C%20OpenAI%20%7C%20Gemini-8B5CF6)](#llm-providers)
-[![Tests](https://img.shields.io/badge/Tests-96%20Passed-success)](#testing)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](#license)
+<p>
+  <img src="https://img.shields.io/badge/AI%20Agent-8A2BE2?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Pydantic-E92063?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white" />
+  <img src="https://img.shields.io/badge/LLM-Powered-FF6F00?style=for-the-badge" />
+</p>
 
+<p>
+  <img src="https://img.shields.io/badge/Tests-96%20Passed-success?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Status-Production%20Ready-00A67E?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" />
+</p>
 
+<br>
 
-BrioLeadEnricher is an autonomous web intelligence pipeline that accepts a list of company domains and transforms public web content into **structured, evidence-grounded company intelligence**.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=190&section=header&text=BrioLeadEnricher&fontSize=58&fontAlignY=35&animation=twinkling&fontColor=ffffff" width="100%"/>
 
-It autonomously discovers relevant pages, handles JavaScript-rendered websites, cleans webpage content, extracts structured information with an LLM, verifies extracted evidence programmatically, calculates confidence, isolates failures, and produces machine-readable JSON.
+</div>
 
 ---
 
-# ✨ What It Does
+# 🧠 What is BrioLeadEnricher?
+
+**BrioLeadEnricher** is an autonomous web-intelligence pipeline that accepts a list of company domains and transforms publicly available web content into **structured, evidence-grounded company intelligence**.
+
+The agent autonomously:
+
+* 🔎 Discovers relevant company pages
+* 🌐 Fetches static and JavaScript-rendered websites
+* 🧹 Cleans webpage content
+* 🧠 Extracts structured information using an LLM
+* 🛡️ Verifies extracted evidence
+* 📊 Calculates an evidence-grounded confidence score
+* 🚨 Isolates failures between companies
+* 📦 Produces machine-readable JSON
+
+---
+
+# ⚡ The Core Idea
 
 ```text
-                         ┌───────────────────────┐
-                         │   🌐 COMPANY DOMAIN   │
-                         │      postman.com       │
-                         └───────────┬───────────┘
-                                     │
-                                     ▼
-                         ┌───────────────────────┐
-                         │   🔎 AUTONOMOUS       │
-                         │      DISCOVERY        │
-                         │                       │
-                         │  About • Team • Sales │
-                         │  Contact • Pricing    │
-                         └───────────┬───────────┘
-                                     │
-                                     ▼
-                         ┌───────────────────────┐
-                         │   🕷️ SMART BROWSING   │
-                         │                       │
-                         │   HTTP / Playwright   │
-                         │   Retries / Caching   │
-                         └───────────┬───────────┘
-                                     │
-                                     ▼
-                         ┌───────────────────────┐
-                         │   🧹 CONTENT CLEANER  │
-                         │                       │
-                         │ HTML → Clean Text    │
-                         │ Remove JS / CSS / SVG │
-                         └───────────┬───────────┘
-                                     │
-                                     ▼
-                         ┌───────────────────────┐
-                         │   🧠 STRUCTURED LLM   │
-                         │       EXTRACTION     │
-                         │                       │
-                         │ Company • ICP • Email │
-                         │ Leadership • LinkedIn│
-                         └───────────┬───────────┘
-                                     │
-                                     ▼
-                         ┌───────────────────────┐
-                         │   🛡️ EVIDENCE CHECK   │
-                         │                       │
-                         │ "Does the source     │
-                         │  actually support it?"│
-                         └───────────┬───────────┘
-                                     │
-                                     ▼
-                         ┌───────────────────────┐
-                         │   📊 CONFIDENCE       │
-                         │       SCORING         │
-                         │                       │
-                         │ Completeness          │
-                         │ Grounding             │
-                         │ Source Depth          │
-                         │ High-value Signals    │
-                         └───────────┬───────────┘
-                                     │
-                                     ▼
-                         ┌───────────────────────┐
-                         │   📦 STRUCTURED JSON  │
-                         │                       │
-                         │  data/output.json     │
-                         └───────────────────────┘
+                    🌐 COMPANY DOMAIN
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ 🔎 DISCOVERY      │
+                 │                   │
+                 │ About             │
+                 │ Team              │
+                 │ Contact           │
+                 │ Sales             │
+                 │ Pricing           │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ 🕷️ SMART BROWSER │
+                 │                   │
+                 │ HTTP              │
+                 │ Playwright       │
+                 │ Retries           │
+                 │ Caching           │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ 🧹 CONTENT CLEANER│
+                 │                   │
+                 │ HTML → Text       │
+                 │ Remove JS / CSS   │
+                 │ Remove SVG        │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ 🧠 LLM EXTRACTION │
+                 │                   │
+                 │ Company           │
+                 │ ICP               │
+                 │ Emails            │
+                 │ Leadership        │
+                 │ LinkedIn          │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ 🛡️ VERIFICATION   │
+                 │                   │
+                 │ Is the information│
+                 │ actually supported│
+                 │ by the source?    │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ 📊 CONFIDENCE     │
+                 │                   │
+                 │ Completeness      │
+                 │ Grounding         │
+                 │ Source Depth      │
+                 │ High-value Signals│
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ 📦 STRUCTURED JSON│
+                 │                   │
+                 │ data/output.json  │
+                 └───────────────────┘
+```
 
-# Key Features
+---
 
-### Autonomous Website Enrichment
+# 🎯 What It Does
 
-The agent receives only company domains and determines which pages are useful for enrichment.
+## 🔎 Autonomous Website Enrichment
 
-It prioritizes pages related to:
+The agent receives **only company domains** and determines which pages are useful for enrichment.
 
-* About
-* Company
-* Team
-* Leadership
-* Contact
-* Sales
-* Pricing
-* Enterprise
-* Customers
-* Solutions
+It prioritizes pages such as:
 
-### JavaScript-Aware Browsing
+```text
+/about
+/company
+/team
+/leadership
+/contact
+/sales
+/pricing
+/enterprise
+/customers
+/solutions
+```
 
-The underlying DAVE engine supports:
+This targeted discovery approach avoids blindly crawling entire websites.
+
+---
+
+# 🌐 JavaScript-Aware Browsing
+
+Modern websites are not always simple HTML pages.
+
+BrioLeadEnricher uses the underlying DAVE infrastructure to support:
+
+```text
+                 🌐 WEBSITE
+                     │
+          ┌──────────┴──────────┐
+          │                     │
+          ▼                     ▼
+     Static HTML          JavaScript App
+          │                     │
+          ▼                     ▼
+        HTTP                Playwright
+          │                     │
+          └──────────┬──────────┘
+                     ▼
+              🧠 CLEAN CONTENT
+```
+
+Supported capabilities include:
 
 * HTTP fetching
 * Playwright rendering
@@ -118,252 +177,327 @@ The underlying DAVE engine supports:
 * Rate limiting
 * Caching
 
-This allows the agent to work with both traditional static websites and JavaScript-heavy pages.
+---
 
-### Clean Content Before LLM Processing
+# 🧹 Content Cleaning Pipeline
 
-Raw HTML is never directly passed to the LLM.
+Raw HTML is **not directly passed to the LLM**.
 
-The pipeline converts webpage content into a cleaner intermediate representation:
+Instead:
 
 ```text
 Raw HTML
-   ↓
-DOM parsing
-   ↓
-Remove scripts
-   ↓
-Remove styles
-   ↓
-Remove SVG/boilerplate
-   ↓
-Extract meaningful text
-   ↓
-Clean Markdown/text
-   ↓
-LLM
+   │
+   ▼
+DOM Parsing
+   │
+   ▼
+Remove Scripts
+   │
+   ▼
+Remove Styles
+   │
+   ▼
+Remove SVG
+   │
+   ▼
+Remove Boilerplate
+   │
+   ▼
+Extract Meaningful Text
+   │
+   ▼
+Clean Markdown / Text
+   │
+   ▼
+🧠 LLM
 ```
 
-This reduces unnecessary tokens and makes extraction more reliable.
+This creates a cleaner intermediate representation and reduces unnecessary context before LLM processing.
 
-Markdown is used as an intermediate representation. Final structured fields are sanitized before being written to the output.
+---
 
-### Structured LLM Extraction
+# 🧠 Structured LLM Extraction
 
-The LLM is constrained by a Pydantic schema.
-
-The primary output contains:
-
-* Company overview
-* Target audience / ICP
-* Public generic email addresses
-* Leadership/team members
-* Roles
-* LinkedIn URLs when discoverable
-* Confidence score
-* Source pages
-* Processing status
-* Errors
-
-This prevents the application from depending on free-form LLM responses.
-
-### Evidence Verification
-
-The LLM output is not blindly trusted.
-
-Extracted contact information and LinkedIn URLs are checked against retrieved webpage evidence before being included in the final output.
+Instead of depending on free-form LLM responses, the system constrains extraction using **Pydantic schemas**.
 
 ```text
-LLM proposes information
-        ↓
-Search retrieved evidence
-        ↓
-Information exists in source?
-      /       \
-    YES        NO
-     ↓          ↓
-Include       Reject
+                🧠 LLM
+                  │
+                  ▼
+          ┌───────────────┐
+          │ Pydantic      │
+          │ Schema        │
+          └───────┬───────┘
+                  │
+                  ▼
+       ┌──────────────────────┐
+       │ CompanyEnrichment    │
+       ├──────────────────────┤
+       │ Company Overview     │
+       │ Target Audience / ICP│
+       │ Contact Points       │
+       │ Leadership           │
+       │ LinkedIn URLs        │
+       │ Confidence           │
+       │ Source Pages         │
+       │ Status               │
+       │ Errors               │
+       └──────────────────────┘
 ```
 
-### Confidence Scoring
+This creates a stable machine-readable contract between the LLM and the rest of the application.
 
-The final confidence score is calculated from objective signals rather than simply trusting a model-generated probability.
+---
 
-The scoring system considers:
+# 🛡️ Evidence-Grounded Extraction
 
-| Dimension          | Weight |
-| ------------------ | -----: |
-| Field completeness |    35% |
-| Evidence grounding |    35% |
-| Source depth       |    15% |
-| High-value signals |    15% |
+One of the core design principles is:
+
+# **Don't trust the LLM alone.**
+
+The pipeline verifies extracted information against retrieved webpage evidence.
+
+```text
+          🧠 LLM
+            │
+            ▼
+    Proposed Information
+            │
+            ▼
+    🔎 Search Retrieved Evidence
+            │
+            ▼
+     Does source support it?
+          /       \
+        YES        NO
+         │          │
+         ▼          ▼
+      INCLUDE     REJECT
+```
+
+Emails and LinkedIn URLs are checked against retrieved evidence before being retained.
+
+---
+
+# 📊 Confidence Scoring
+
+The confidence score is calculated from observable signals instead of simply trusting a model-generated probability.
+
+| Dimension          |  Weight |
+| ------------------ | ------: |
+| Field Completeness | **35%** |
+| Evidence Grounding | **35%** |
+| Source Depth       | **15%** |
+| High-value Signals | **15%** |
 
 Errors can reduce the final score.
 
-This makes the confidence value more interpretable for downstream lead-processing workflows.
+```text
+Field Completeness
+       +
+Evidence Grounding
+       +
+Source Depth
+       +
+High-Value Signals
+       -
+Error Penalty
+       │
+       ▼
+📊 CONFIDENCE SCORE
+       │
+       ▼
+    0.0 → 1.0
+```
 
-### Failure Isolation
+---
 
-A failure for one company does not stop the complete batch.
+# 🛡️ Anti-Hallucination Architecture
+
+BrioLeadEnricher explicitly avoids fabricating unavailable information.
+
+### Email
+
+```text
+LLM Candidate
+     │
+     ▼
+Evidence Search
+     │
+     ▼
+Found?
+ ┌───┴───┐
+YES     NO
+ │       │
+ ▼       ▼
+Keep   Reject
+```
+
+### LinkedIn
+
+LinkedIn URLs are retained only when supported by retrieved webpage evidence.
+
+### Missing Data
+
+If information cannot be found:
+
+```json
+{
+  "contact_points": []
+}
+```
+
+is preferred over inventing an email address.
+
+---
+
+# ⚙️ Failure Isolation
+
+A single failed company should **not terminate the complete batch**.
 
 ```text
 postman.com
-    ↓
-SUCCESS
+     │
+     ▼
+  ✅ SUCCESS
 
 supabase.com
-    ↓
-SUCCESS
+     │
+     ▼
+  ✅ SUCCESS
 
 invalid-domain.example
-    ↓
-FAILED
+     │
+     ▼
+  ❌ FAILED
 
 vapi.ai
-    ↓
-SUCCESS
+     │
+     ▼
+  ✅ SUCCESS
 ```
 
-The invalid domain is recorded in the output while the remaining companies continue processing.
+Each company is processed independently, allowing the remaining batch to continue when one domain fails.
 
 ---
 
-# Demonstrated Run
-
-The implementation was tested against the required assignment domains:
+# 🏗️ Architecture
 
 ```text
-postman.com
-supabase.com
-vapi.ai
-```
-
-Command used:
-
-```bash
-dave enrich \
-  --provider groq \
-  --model openai/gpt-oss-20b \
-  --input data/input.json \
-  --output data/output.json
-```
-
-## Results
-
-| Company      | Status  | Confidence | Pages | Contacts | Leaders |
-| ------------ | ------- | ---------: | ----: | -------: | ------: |
-| postman.com  | success |       0.92 |     5 |        3 |       3 |
-| supabase.com | success |       0.92 |     5 |        5 |       2 |
-| vapi.ai      | success |       0.71 |     5 |        0 |       1 |
-
-### Batch Summary
-
-```text
-Companies processed: 3
-Successful:          3
-Partial:             0
-Failed:              0
-
-Pages analyzed:      15
-Tokens used:         52,440
-Estimated cost:      $0.071274
-```
-
-The complete structured result is written to:
-
-```text
-data/output.json
-```
-
----
-
-# Architecture
-
-```text
-                    ┌──────────────────────┐
-                    │   data/input.json    │
-                    │  Company Domains     │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │ Domain Normalization │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │   Homepage Fetch     │
-                    │ HTTP / Playwright    │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │   Content Cleaner    │
-                    │ HTML → Clean Text    │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │ Relevant Page        │
-                    │ Discovery            │
-                    └──────────┬───────────┘
-                               │
-                  ┌────────────┼────────────┐
-                  ▼            ▼            ▼
-              /about       /contact      /pricing
-                  │            │            │
-                  └────────────┼────────────┘
-                               ▼
-                    ┌──────────────────────┐
-                    │ Context Aggregation  │
-                    │ Homepage + Subpages  │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │ Structured LLM       │
-                    │ Extraction           │
-                    │ Pydantic Schema      │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │ Evidence Verification│
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │ Markdown Sanitization│
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │ Confidence Scoring   │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │ Status Determination │
-                    │ success / partial /  │
-                    │ failed               │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │  data/output.json    │
-                    └──────────────────────┘
+                    📄 data/input.json
+                    Company Domains
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ Domain Normalizer  │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ Homepage Fetch    │
+                 │ HTTP / Playwright │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ Content Cleaner   │
+                 │ HTML → Text       │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ Page Discovery    │
+                 └─────────┬─────────┘
+                           │
+              ┌────────────┼────────────┐
+              ▼            ▼            ▼
+           /about       /contact      /pricing
+              │            │            │
+              └────────────┼────────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ Context           │
+                 │ Aggregation       │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ Structured LLM    │
+                 │ Extraction        │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ Evidence           │
+                 │ Verification       │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ Markdown           │
+                 │ Sanitization       │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ Confidence Scoring │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ Status             │
+                 │ Determination      │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                    📦 output.json
 ```
 
 ---
 
-# Project Structure
+# 🧩 Core Architecture
+
+```text
+              ┌──────────────────────────┐
+              │     BrioLeadEnricher     │
+              └────────────┬─────────────┘
+                           │
+          ┌────────────────┼────────────────┐
+          │                │                │
+          ▼                ▼                ▼
+     🔎 Discovery      🌐 Fetchers       🧠 LLM
+          │                │                │
+          │          ┌─────┼─────┐          │
+          │          │     │     │          │
+          │         HTTP Playwright Stealth │
+          │          │     │     │          │
+          └──────────┴─────┼─────┴──────────┘
+                           │
+                           ▼
+                    🧹 Cleaner
+                           │
+                           ▼
+                    🛡️ Validator
+                           │
+                           ▼
+                    📊 Scorer
+                           │
+                           ▼
+                     📦 JSON
+```
+
+---
+
+# 📁 Project Structure
 
 ```text
 BrioLeadEnricher/
 │
-├── dave/
+├── 📁 dave/
 │   │
-│   ├── enrichment/
+│   ├── 📁 enrichment/
 │   │   ├── __init__.py
 │   │   ├── agent.py
 │   │   ├── cleaner.py
@@ -371,49 +505,45 @@ BrioLeadEnricher/
 │   │   ├── schema.py
 │   │   └── scorer.py
 │   │
-│   ├── core/
+│   ├── 📁 core/
 │   │   ├── engine.py
 │   │   ├── config.py
 │   │   ├── retries.py
 │   │   ├── queue.py
 │   │   └── rate_limit.py
 │   │
-│   ├── fetchers/
+│   ├── 📁 fetchers/
 │   │   ├── http.py
 │   │   ├── playwright.py
 │   │   ├── stealth.py
 │   │   └── router.py
 │   │
-│   ├── extractors/
+│   ├── 📁 extractors/
 │   │   ├── llm.py
 │   │   ├── semantic.py
 │   │   └── schema.py
 │   │
-│   ├── search/
-│   │   └── ...
+│   ├── 📁 search/
 │   │
-│   ├── monitoring/
+│   ├── 📁 monitoring/
 │   │   ├── cost.py
 │   │   └── logging.py
 │   │
-│   ├── cache/
-│   │   └── ...
+│   ├── 📁 cache/
 │   │
-│   ├── cli/
-│   │   └── ...
+│   ├── 📁 cli/
 │   │
 │   └── main.py
 │
-├── data/
+├── 📁 data/
 │   ├── input.json
 │   └── output.json
 │
-├── tests/
+├── 📁 tests/
 │   └── test_enrichment.py
 │
-├── docs/
-│
-├── examples/
+├── 📁 docs/
+├── 📁 examples/
 │
 ├── .env.example
 ├── .gitignore
@@ -425,127 +555,39 @@ BrioLeadEnricher/
 
 ---
 
-# Core SoftwareBrio Files
+# 🔬 The Enrichment Agent
 
-## `dave/enrichment/schema.py`
-
-Defines the Pydantic data models used by the enrichment pipeline.
-
-The main schema represents:
-
-```text
-CompanyEnrichment
-├── domain
-├── company_overview
-├── target_audience
-├── contact_points[]
-├── leadership[]
-├── confidence_score
-├── source_pages[]
-├── status
-└── errors[]
-```
-
-This provides a stable machine-readable contract between the LLM and the rest of the application.
-
-## `dave/enrichment/cleaner.py`
-
-Responsible for transforming webpage HTML into useful text.
-
-The cleaner removes unnecessary webpage content such as:
-
-* JavaScript
-* CSS
-* SVG elements
-* Navigation boilerplate
-* Unnecessary HTML structures
-
-The goal is to provide the LLM with relevant webpage content rather than raw HTML.
-
-## `dave/enrichment/discovery.py`
-
-Implements autonomous relevant-page discovery.
-
-Instead of blindly crawling every page, the agent scores and prioritizes links based on their relevance to lead enrichment.
-
-Examples include:
-
-```text
-/about
-/company
-/team
-/contact
-/contact-us
-/sales
-/pricing
-/enterprise
-/customers
-/solutions
-```
-
-This makes the crawler more targeted and reduces unnecessary requests and LLM tokens.
-
-## `dave/enrichment/agent.py`
-
-This is the main orchestration layer.
-
-It coordinates:
+The central orchestration layer coordinates:
 
 ```text
 Domain
- ↓
+  ↓
 Homepage
- ↓
+  ↓
 Page Discovery
- ↓
+  ↓
 Relevant Subpages
- ↓
+  ↓
 Content Cleaning
- ↓
+  ↓
 Context Aggregation
- ↓
+  ↓
 LLM Extraction
- ↓
+  ↓
 Evidence Verification
- ↓
+  ↓
 Confidence Scoring
- ↓
+  ↓
 Final Result
 ```
 
-The agent processes each domain independently so one failed company does not terminate the batch.
-
-## `dave/enrichment/scorer.py`
-
-Calculates an evidence-grounded confidence score.
-
-The score uses:
-
-```text
-Field Completeness
-        +
-Evidence Grounding
-        +
-Source Depth
-        +
-High-value Signals
-        -
-Error Penalty
-```
-
-The score is bounded between:
-
-```text
-0.0 → 1.0
-```
+The agent processes each domain independently so one failed company does not terminate the complete batch.
 
 ---
 
-# Input
+# 📦 Input
 
 The agent accepts a JSON list of company domains.
-
-Example:
 
 ```json
 [
@@ -555,7 +597,7 @@ Example:
 ]
 ```
 
-File:
+Input file:
 
 ```text
 data/input.json
@@ -565,15 +607,13 @@ Domains are normalized before processing.
 
 ---
 
-# Output
+# 📤 Output
 
-The agent produces:
+The final structured result is written to:
 
 ```text
 data/output.json
 ```
-
-Each company follows a structured schema.
 
 Example:
 
@@ -609,207 +649,90 @@ Example:
 
 ---
 
-# Output Fields
+# 📊 Output Schema
 
-| Field              | Type        | Description                             |
-| ------------------ | ----------- | --------------------------------------- |
-| `domain`           | `str`       | Normalized company domain               |
-| `company_overview` | `str`       | Concise factual company overview        |
-| `target_audience`  | `str`       | Target audience / ICP                   |
-| `contact_points`   | `list`      | Public generic emails with evidence     |
-| `leadership`       | `list`      | Leadership/team information             |
-| `confidence_score` | `float`     | Evidence-grounded score from 0.0 to 1.0 |
-| `source_pages`     | `list[str]` | Pages used during enrichment            |
-| `status`           | `str`       | `success`, `partial`, or `failed`       |
-| `errors`           | `list[str]` | Captured processing errors              |
+| Field              | Type        | Description                         |
+| ------------------ | ----------- | ----------------------------------- |
+| `domain`           | `str`       | Normalized company domain           |
+| `company_overview` | `str`       | Concise factual overview            |
+| `target_audience`  | `str`       | Target audience / ICP               |
+| `contact_points`   | `list`      | Public generic emails with evidence |
+| `leadership`       | `list`      | Leadership/team information         |
+| `confidence_score` | `float`     | Evidence-grounded score             |
+| `source_pages`     | `list[str]` | Pages used                          |
+| `status`           | `str`       | `success`, `partial`, or `failed`   |
+| `errors`           | `list[str]` | Captured processing errors          |
 
 ---
 
-# Anti-Hallucination Design
+# 🧪 Demonstrated Run
 
-A major design goal is preventing the LLM from inventing lead information.
-
-### Email Verification
-
-An email must be present in retrieved source content before it is included.
+The implementation was tested against:
 
 ```text
-LLM extraction
-      ↓
-Email candidate
-      ↓
-Evidence search
-      ↓
-Found in source?
-   ┌──────┴──────┐
-  YES            NO
-   ↓              ↓
-Include          Reject
+postman.com
+supabase.com
+vapi.ai
 ```
 
-### LinkedIn Verification
-
-LinkedIn URLs are only retained when they are supported by retrieved webpage evidence.
-
-### No Fabricated Fallback Data
-
-If information cannot be found, the system returns an empty field rather than inventing an answer.
-
-For example:
-
-```json
-"contact_points": []
-```
-
-is preferable to fabricating an email address.
-
----
-
-# Resilience
-
-The enrichment agent is designed for real-world web failures.
-
-## 404 / Missing Pages
-
-A missing subpage does not terminate the company enrichment.
-
-```text
-Homepage
-   ↓
-/about       → 200
-/contact     → 200
-/team        → 404
-/pricing     → 200
-```
-
-The available pages are still used.
-
-## Invalid Domains
-
-An invalid domain becomes:
-
-```json
-{
-  "status": "failed",
-  "errors": [
-    "..."
-  ]
-}
-```
-
-Other domains continue processing.
-
-## LLM Rate Limits
-
-The underlying engine supports retry behavior and handles provider failures without terminating the entire batch.
-
-## Timeouts
-
-Individual fetch failures are isolated and recorded.
-
-## LLM Failures
-
-When structured extraction fails, the error is captured and the pipeline attempts fallback processing where possible.
-
-## Partial Information
-
-Missing information is represented explicitly.
-
-For example:
-
-```json
-{
-  "contact_points": [],
-  "leadership": []
-}
-```
-
-The system does not fabricate unavailable information.
-
----
-
-# Fetching Strategy
-
-The underlying DAVE engine provides multiple fetchers.
-
-| Fetcher    | Purpose                                     |
-| ---------- | ------------------------------------------- |
-| HTTP       | Fast static webpages                        |
-| Playwright | JavaScript-rendered websites                |
-| Stealth    | Websites with stronger automation detection |
-| File       | Local HTML, Markdown, JSON, text and PDF    |
-| Plugin     | External/custom crawlers                    |
-
-Automatic routing allows the agent to select an appropriate fetching mechanism.
-
----
-
-# JavaScript Rendering
-
-Some modern websites are heavily dependent on JavaScript.
-
-For these websites, Playwright can render the page before extraction.
-
-Installation:
+The demonstrated command used:
 
 ```bash
-python -m pip install -e ".[playwright]"
-python -m playwright install chromium
-```
-
-The SoftwareBrio enrichment pipeline can therefore work with both:
-
-```text
-Static HTML
-```
-
-and:
-
-```text
-JavaScript-rendered DOM
+dave enrich \
+  --provider groq \
+  --model openai/gpt-oss-20b \
+  --input data/input.json \
+  --output data/output.json
 ```
 
 ---
 
-# Caching and Rate Limiting
+# 📈 Results
 
-The underlying DAVE infrastructure provides:
+| Company          | Status    | Confidence | Pages | Contacts | Leaders |
+| ---------------- | --------- | ---------: | ----: | -------: | ------: |
+| **postman.com**  | ✅ success |   **0.92** |     5 |        3 |       3 |
+| **supabase.com** | ✅ success |   **0.92** |     5 |        5 |       2 |
+| **vapi.ai**      | ✅ success |   **0.71** |     5 |        0 |       1 |
 
-* Response caching
-* Domain rate limiting
-* Retries
-* Request delays
-* Queueing
-* Structured logging
-* Cost tracking
-
-These controls reduce unnecessary requests and make repeated enrichment runs more efficient.
-
----
-
-# Cost Tracking
-
-LLM usage is tracked during the enrichment process.
-
-The demonstrated run produced:
+### Batch Summary
 
 ```text
-Tokens:
-52,440
+Companies processed:  3
+Successful:           3
+Partial:              0
+Failed:               0
 
-Estimated cost:
-$0.071274
+Pages analyzed:       15
+Tokens used:          52,440
+Estimated cost:       $0.071274
 ```
-
-Cost tracking is useful for scaling the pipeline to larger lead datasets.
 
 ---
 
-# LLM Providers
+# 💰 Cost Tracking
 
-The underlying engine supports multiple providers.
+LLM usage is tracked during enrichment.
 
-Currently supported providers include:
+```text
+┌─────────────────────────────┐
+│       LIVE RUN METRICS      │
+├─────────────────────────────┤
+│                             │
+│  📄 Pages       15          │
+│  🧠 Tokens      52,440      │
+│  💵 Cost        $0.071274   │
+│                             │
+└─────────────────────────────┘
+```
+
+This provides visibility into the cost of scaling enrichment workflows.
+
+---
+
+# 🤖 LLM Providers
+
+The underlying engine supports:
 
 ```text
 OpenAI
@@ -821,45 +744,52 @@ Ollama
 Mock
 ```
 
-The demonstrated SoftwareBrio run used:
+The demonstrated run used:
 
 ```text
-Provider: Groq
-Model: openai/gpt-oss-20b
+Provider → Groq
+Model    → openai/gpt-oss-20b
 ```
-
-The provider and model are configurable through the CLI.
 
 ---
 
-# Installation
+# 🌐 Fetching Strategy
 
-Clone the repository:
+| Fetcher       | Purpose                         |
+| ------------- | ------------------------------- |
+| 🌐 HTTP       | Fast static webpages            |
+| 🎭 Playwright | JavaScript-rendered websites    |
+| 🥷 Stealth    | Stronger automation detection   |
+| 📄 File       | HTML, Markdown, JSON, text, PDF |
+| 🔌 Plugin     | External/custom crawlers        |
+
+Automatic routing allows the system to select an appropriate fetching mechanism.
+
+---
+
+# ⚙️ Installation
 
 ```bash
 git clone https://github.com/chandramouli9392/SoftwareBrio_AI-Engineer.git
+
 cd SoftwareBrio_AI-Engineer
-```
 
-Create a virtual environment:
-
-```bash
 python -m venv .venv
 ```
 
-Activate it on Windows:
+### Windows
 
-```bash
+```powershell
 .venv\Scripts\activate
 ```
 
-Install the project:
+### Install
 
 ```bash
 python -m pip install -e ".[dev]"
 ```
 
-For JavaScript-rendered websites:
+### Playwright Support
 
 ```bash
 python -m pip install -e ".[playwright]"
@@ -868,39 +798,33 @@ python -m playwright install chromium
 
 ---
 
-# Environment Configuration
+# 🔐 Environment Configuration
 
-Copy the example environment file:
+Create your environment file:
 
 ```bash
 cp .env.example .env
 ```
 
-On Windows PowerShell:
+Windows PowerShell:
 
 ```powershell
 Copy-Item .env.example .env
 ```
 
-Configure the provider:
+Example:
 
-```text
+```env
 DAVE_LLM_PROVIDER=groq
 DAVE_LLM_MODEL=openai/gpt-oss-20b
 GROQ_API_KEY=<your-key>
 ```
 
-API keys are loaded from environment variables.
-
-**Never commit `.env` to Git.**
-
-The repository includes `.env` in `.gitignore`.
+> 🔒 Never commit `.env` to GitHub.
 
 ---
 
-# Running the Agent
-
-Default SoftwareBrio run:
+# 🚀 Run the Agent
 
 ```bash
 dave enrich \
@@ -910,7 +834,7 @@ dave enrich \
   --output data/output.json
 ```
 
-Short form:
+Or:
 
 ```bash
 dave enrich --provider groq --model openai/gpt-oss-20b --input data/input.json --output data/output.json
@@ -918,9 +842,9 @@ dave enrich --provider groq --model openai/gpt-oss-20b --input data/input.json -
 
 ---
 
-# Mock Run
+# 🧪 Mock Mode
 
-A mock provider is available for testing without an API key:
+You can run the pipeline without an API key:
 
 ```bash
 dave enrich \
@@ -930,28 +854,26 @@ dave enrich \
   --output data/output.json
 ```
 
-This makes local testing possible without consuming LLM credits.
+This allows local testing without consuming LLM credits.
 
 ---
 
-# Testing
+# ✅ Testing
 
-The project includes automated tests covering the enrichment workflow and supporting functionality.
-
-Run:
+Run the automated test suite:
 
 ```bash
 python -m pytest tests/ -v
 ```
 
-The final validation run produced:
+Validation result:
 
 ```text
 96 passed
 1 skipped
 ```
 
-Linting was also executed:
+Linting:
 
 ```bash
 python -m ruff check dave/ tests/
@@ -965,298 +887,125 @@ All checks passed!
 
 ---
 
-# Test Coverage Areas
-
-Tests cover important behaviors including:
-
-* Schema validation
-* Domain normalization
-* Content cleaning
-* Relevant-page discovery
-* Evidence verification
-* Confidence scoring
-* Failure isolation
-* Invalid domain handling
-* Output structure
-* Mock provider behavior
-
-The purpose is to test both normal extraction and failure paths.
-
----
-
-# Example End-to-End Workflow
-
-Suppose the input is:
-
-```json
-[
-  "postman.com",
-  "supabase.com",
-  "vapi.ai"
-]
-```
-
-The system performs:
-
-### Step 1 - Normalize Domains
+# 🔄 End-to-End Workflow
 
 ```text
-postman.com
-supabase.com
-vapi.ai
+                 📂 INPUT
+                    │
+                    ▼
+             🌐 DOMAIN NORMALIZE
+                    │
+                    ▼
+             🕷️ FETCH WEBSITE
+                    │
+                    ▼
+             🧹 CLEAN CONTENT
+                    │
+                    ▼
+             🔎 DISCOVER PAGES
+                    │
+                    ▼
+             📄 FETCH RELEVANT
+                    │
+                    ▼
+             🧩 AGGREGATE CONTEXT
+                    │
+                    ▼
+             🧠 LLM EXTRACTION
+                    │
+                    ▼
+             🛡️ VERIFY EVIDENCE
+                    │
+                    ▼
+             📊 SCORE CONFIDENCE
+                    │
+                    ▼
+             📦 STRUCTURED JSON
 ```
 
-### Step 2 - Fetch Homepage
+---
+
+# 🧠 Engineering Philosophy
+
+The system intentionally avoids blindly trusting an LLM.
+
+Instead:
 
 ```text
-HTTP
-   or
-Playwright
+       RETRIEVE
+           ↓
+         CLEAN
+           ↓
+        EXTRACT
+           ↓
+        VERIFY
+           ↓
+         SCORE
+           ↓
+        OUTPUT
 ```
 
-### Step 3 - Clean Content
+This architecture combines deterministic preprocessing and verification with LLM-based extraction.
+
+---
+
+# 🏆 Key Engineering Decisions
+
+### 1️⃣ Pydantic Instead of Free-Form JSON
+
+Provides a stable contract for downstream processing.
+
+### 2️⃣ Evidence Verification
+
+Adds a verification layer after LLM extraction.
+
+### 3️⃣ Targeted Page Discovery
+
+Reduces unnecessary:
+
+* Network requests
+* Processing
+* LLM tokens
+* Irrelevant context
+
+### 4️⃣ Failure Isolation
+
+Each company is treated independently.
+
+### 5️⃣ Explicit Confidence Scoring
+
+Uses observable signals instead of relying entirely on an LLM-generated probability.
+
+### 6️⃣ Cost Tracking
+
+Makes the system easier to evaluate before scaling.
+
+---
+
+# 🛡️ Resilience
+
+BrioLeadEnricher handles real-world web failures including:
 
 ```text
-HTML
- ↓
-DOM parsing
- ↓
-Relevant text
+❌ 404 Pages
+❌ Invalid Domains
+⏱️ Timeouts
+🚦 Rate Limits
+🔁 Fetch Failures
+🧠 LLM Failures
+📭 Missing Information
 ```
 
-### Step 4 - Discover Pages
-
-Example:
-
-```text
-/about
-/company
-/contact
-/pricing
-/sales
-```
-
-### Step 5 - Fetch Selected Pages
-
-The crawler retrieves the most relevant pages within the configured page limit.
-
-### Step 6 - Aggregate Context
-
-```text
-Homepage
-+
-About
-+
-Contact
-+
-Pricing
-+
-Relevant company pages
-```
-
-### Step 7 - Structured LLM Extraction
-
-The LLM receives clean contextual content and a Pydantic-defined schema.
-
-### Step 8 - Evidence Verification
-
-Extracted information is checked against the retrieved source text.
-
-### Step 9 - Confidence Scoring
-
-The system evaluates completeness and evidence grounding.
-
-### Step 10 - Output
-
-```text
-data/output.json
-```
+Rather than terminating the entire batch, failures are captured and represented in the output.
 
 ---
 
-# Example Demonstrated Output
+# 🔌 Plugin Architecture
 
-For `postman.com`, the agent successfully extracted company information, target audience information, public generic contact points, and leadership information.
+The underlying engine supports extensible:
 
-For `supabase.com`, the agent successfully extracted company information, target audience information, public contact points, and leadership information.
-
-For `vapi.ai`, the agent successfully extracted company information and available leadership information while returning no public generic email addresses when none were supported by the retrieved evidence.
-
-This demonstrates that the system does not require every field to be populated in order to complete a successful enrichment.
-
----
-
-# Why This Architecture?
-
-The implementation intentionally avoids introducing a heavy agent framework.
-
-Instead, the workflow uses a focused custom orchestration layer:
-
-```text
-Agent
- +
-Fetcher
- +
-Cleaner
- +
-Discovery
- +
-LLM
- +
-Validator
- +
-Evidence Checker
- +
-Scorer
-```
-
-This provides:
-
-* Clear control flow
-* Easy debugging
-* Lower dependency overhead
-* Deterministic preprocessing
-* Explicit failure handling
-* Structured outputs
-* Easier testing
-
-The existing DAVE infrastructure handles the lower-level scraping and reliability concerns while the SoftwareBrio-specific enrichment layer focuses on the business problem.
-
----
-
-# Existing DAVE Infrastructure
-
-BrioLeadEnricher builds on DAVE's existing capabilities.
-
-DAVE provides:
-
-* HTTP scraping
-* Playwright rendering
-* Stealth browser support
-* Search integration
-* Multi-page crawling
-* Pydantic extraction
-* LLM providers
-* Semantic chunking
-* Caching
-* Rate limiting
-* Retry handling
-* Cost tracking
-* Structured logging
-* Batch processing
-* Plugin support
-
-The SoftwareBrio-specific implementation adds the domain-level enrichment workflow on top of these components.
-
----
-
-# DAVE Quick Start
-
-The underlying engine can also be used independently.
-
-Install:
-
-```bash
-pip install dave-ai
-```
-
-Extract company information:
-
-```bash
-dave extract "https://openai.com" --recipe company_info
-```
-
-Or from Python:
-
-```python
-import dave
-
-result = await dave.extract(
-    "https://example.com",
-    "get the title and description"
-)
-
-print(result)
-```
-
----
-
-# Built-in Recipes
-
-DAVE includes several extraction recipes:
-
-```text
-company_info
-pricing
-job_listings
-contact_info
-product_features
-reviews
-```
-
-Example:
-
-```bash
-dave extract https://example.com --recipe company_info
-```
-
-Python:
-
-```python
-import dave
-
-company = await dave.recipes.company_info(
-    "https://example.com"
-)
-
-print(company.model_dump())
-```
-
----
-
-# Multi-Page Crawling
-
-The underlying engine supports bounded website crawling.
-
-Example:
-
-```bash
-dave crawl \
-  "https://example.com" \
-  --recipe company_info \
-  --max-pages 20 \
-  --max-depth 2
-```
-
-The SoftwareBrio enrichment workflow uses a more targeted discovery strategy rather than blindly crawling every page.
-
----
-
-# Search Integration
-
-DAVE also supports web search followed by extraction.
-
-Example:
-
-```bash
-dave search \
-  "best open source CRM" \
-  --recipe company_info \
-  --limit 5
-```
-
-Search providers are pluggable.
-
-This capability can be extended for future external lead discovery and LinkedIn URL discovery.
-
----
-
-# Plugin Architecture
-
-The underlying engine supports custom fetchers and search providers.
-
-This makes the system extensible for:
-
+* Custom fetchers
+* Search providers
 * External crawlers
 * Enterprise crawlers
 * Authenticated browser sessions
@@ -1268,313 +1017,187 @@ This makes the system extensible for:
 
 ---
 
-# Configuration
+# 🔮 Future Improvements
 
-Example configuration:
-
-```python
-from dave.core.config import DaveConfig, LLMConfig
-
-config = DaveConfig(
-    fetcher="auto",
-    llm=LLMConfig(
-        provider="openai",
-        model="gpt-4o-mini"
-    ),
-    cache_path=".dave/cache.sqlite3",
-    rate_limit_per_domain=2.0,
-)
-```
-
----
-
-# Security
-
-API credentials are handled through environment variables.
-
-The repository does not require API keys to be hard-coded into source files.
-
-`.env` is excluded through `.gitignore`:
+Potential extensions include:
 
 ```text
-.env
-.env.*
-!.env.example
+🔎 Stronger LinkedIn Search
+🌐 Additional Search Providers
+🤖 Advanced Browser-Agent Loops
+🧠 Graph-Based Orchestration
+⚡ Better SPA Discovery
+🛡️ More Extraction Validators
+📊 Larger Benchmark Datasets
+📡 OpenTelemetry Tracing
+🗃️ Persistent Enrichment History
+🔗 Lead Deduplication
+📇 CRM Integration
+🎯 Automated Lead Scoring
+👤 Human Review Workflows
 ```
 
-Only placeholder values should be stored in `.env.example`.
-
-Before pushing to GitHub, verify:
-
-```bash
-git status
-```
-
-and make sure `.env` is not tracked.
-
 ---
 
-# Responsible Web Access
+# ⚠️ Limitations
 
-The system is intended for publicly accessible information.
+The system works with publicly discoverable information.
 
-When using the crawler:
-
-* Respect website terms of service.
-* Respect robots.txt where applicable.
-* Avoid excessive request rates.
-* Use rate limiting.
-* Do not bypass access controls.
-* Do not collect private information.
-* Use public professional/company information only.
-
----
-
-# Engineering Decisions
-
-## 1. Pydantic Instead of Free-Form JSON
-
-Pydantic provides validation and a stable contract for downstream processing.
-
-## 2. Evidence Verification After LLM Extraction
-
-LLMs can produce plausible but unsupported information.
-
-Programmatic verification provides an additional safety layer.
-
-## 3. Targeted Page Discovery
-
-A targeted crawler reduces:
-
-* Network requests
-* Processing time
-* LLM tokens
-* Irrelevant context
-
-## 4. Failure Isolation
-
-Each company is treated as an independent unit.
-
-This is important when processing large lead lists.
-
-## 5. Explicit Confidence Scoring
-
-Confidence is calculated from observable signals rather than relying entirely on an LLM-generated probability.
-
-## 6. Cost Tracking
-
-LLM usage is tracked so the system can be evaluated before scaling to larger datasets.
-
----
-
-# Limitations
-
-The system intentionally works only with publicly discoverable information.
-
-Some companies may:
+Some websites may:
 
 * Hide contact information
 * Block automated browsers
-* Use authentication
+* Require authentication
 * Render content dynamically
 * Have incomplete leadership pages
 * Provide no public generic email
 * Prevent indexing of LinkedIn URLs
 
-In these cases the agent records the available information rather than inventing missing data.
-
-A successful run therefore does not imply that every field will always be populated.
+When information is unavailable, the system records the missing information instead of fabricating it.
 
 ---
 
-# Future Improvements
+# 🔒 Responsible Web Access
 
-Possible future improvements include:
+The system is intended for publicly accessible information.
 
-* Stronger external LinkedIn search integration
-* Additional search providers
-* More advanced browser-agent loops
-* Optional graph-based orchestration for complex workflows
-* Better SPA-specific discovery
-* More domain-specific extraction validators
-* Larger benchmark datasets
-* OpenTelemetry tracing
-* Persistent enrichment history
-* Lead deduplication
-* CRM integration
-* Automated lead scoring
-* Human review workflows
+When using the crawler:
 
-These are intentionally separated from the core enrichment pipeline so the current system remains lightweight and testable.
+* Respect website terms of service
+* Respect robots.txt where applicable
+* Avoid excessive request rates
+* Use rate limiting
+* Do not bypass access controls
+* Do not collect private information
+* Use public professional/company information only
 
 ---
 
-# Submission Deliverables
+# 🧰 Technology Stack
 
-The repository contains the main implementation and supporting artifacts for the SoftwareBrio practical assignment.
+<div align="center">
 
-Important files:
+| Layer           | Technology                  |
+| --------------- | --------------------------- |
+| 🐍 Language     | Python                      |
+| 🧠 Intelligence | LLMs                        |
+| 📐 Schema       | Pydantic                    |
+| 🌐 Browser      | Playwright                  |
+| 🕷️ Fetching    | HTTP / Playwright / Stealth |
+| 🧹 Processing   | HTML → Markdown / Text      |
+| 🔎 Discovery    | Autonomous Page Discovery   |
+| 🛡️ Validation  | Evidence Verification       |
+| 📊 Scoring      | Confidence Scoring          |
+| 🧪 Testing      | Pytest                      |
+| 🔍 Linting      | Ruff                        |
+| 💾 Output       | Structured JSON             |
+
+</div>
+
+---
+
+# 📊 Project at a Glance
 
 ```text
-data/input.json
-data/output.json
-dave/enrichment/schema.py
-dave/enrichment/cleaner.py
-dave/enrichment/discovery.py
-dave/enrichment/agent.py
-dave/enrichment/scorer.py
-tests/test_enrichment.py
-.env.example
-README.md
-LICENSE
+╔══════════════════════════════════════════════╗
+║            ⚡ BrioLeadEnricher               ║
+╠══════════════════════════════════════════════╣
+║                                              ║
+║  🤖 Autonomous Web Intelligence              ║
+║                                              ║
+║  🔎 Autonomous Page Discovery                ║
+║  🌐 JavaScript-Aware Browsing               ║
+║  🧹 Content Cleaning                        ║
+║  🧠 Structured LLM Extraction               ║
+║  🛡️ Evidence Verification                  ║
+║  📊 Confidence Scoring                      ║
+║  🚨 Failure Isolation                      ║
+║  💰 Cost Tracking                           ║
+║  📦 Machine-Readable JSON                   ║
+║                                              ║
+║  Tests: 96 Passed / 1 Skipped               ║
+║                                              ║
+╚══════════════════════════════════════════════╝
 ```
 
 ---
 
-# Assignment Mapping
+# 🎯 The Bigger Vision
 
-| SoftwareBrio Requirement | Implementation                       |
-| ------------------------ | ------------------------------------ |
-| Python agent             | `dave/enrichment/agent.py`           |
-| Company domain input     | `data/input.json`                    |
-| Required test domains    | Postman, Supabase, Vapi              |
-| Automated browsing       | HTTP + Playwright                    |
-| JS rendering             | Playwright                           |
-| Relevant subpages        | Autonomous page discovery            |
-| Content preprocessing    | `cleaner.py`                         |
-| No raw HTML to LLM       | Cleaned text/Markdown representation |
-| Structured LLM output    | Pydantic schemas                     |
-| Company overview         | `CompanyEnrichment`                  |
-| ICP / target audience    | `target_audience`                    |
-| Public emails            | `contact_points`                     |
-| Leadership               | `leadership`                         |
-| LinkedIn URLs            | Evidence-verified when discoverable  |
-| Confidence               | Evidence-grounded scoring            |
-| 404 handling             | Failure isolation                    |
-| Timeouts                 | Fetcher resilience                   |
-| Rate limits              | Retry/rate-limit infrastructure      |
-| Missing information      | Explicit empty fields                |
-| Batch resilience         | Per-domain isolation                 |
-| Cost tracking            | DAVE cost tracker                    |
-| Tests                    | Pytest                               |
-| Linting                  | Ruff                                 |
-
----
-
-# Validation Summary
-
-Final local validation:
+BrioLeadEnricher can serve as the intelligence layer between:
 
 ```text
-Pytest:
-96 passed, 1 skipped
-
-Ruff:
-All checks passed!
+                 🌐 PUBLIC WEB
+                       │
+                       ▼
+              🤖 ENRICHMENT AGENT
+                       │
+          ┌────────────┼────────────┐
+          ▼            ▼            ▼
+       COMPANY       CONTACT       LEADERS
+       INTEL         DATA          INFO
+          │            │            │
+          └────────────┼────────────┘
+                       ▼
+                📊 STRUCTURED DATA
+                       │
+                       ▼
+                🎯 SALES INTELLIGENCE
+                       │
+                       ▼
+                 🔗 CRM / WORKFLOW
 ```
 
-Live enrichment:
-
-```text
-3 / 3 companies successful
-15 pages analyzed
-52,440 tokens
-$0.071274 estimated cost
-```
+The core architecture provides a foundation for larger lead-enrichment and sales-intelligence workflows.
 
 ---
 
-# Conclusion
+# 👨‍💻 Author
 
-BrioLeadEnricher demonstrates an autonomous lead enrichment pipeline that combines web browsing, targeted page discovery, content preprocessing, structured LLM extraction, evidence verification, confidence scoring, and resilient batch processing.
+<div align="center">
 
-The key design principle is:
+# Chandramouli Boppana
 
-```text
-Do not trust the LLM alone.
-```
+### AI Engineer • Generative AI Builder • AI Agent Developer
 
-Instead:
+Building intelligent systems that transform unstructured web information into structured, actionable intelligence.
 
-```text
-Retrieve
-   ↓
-Clean
-   ↓
-Extract
-   ↓
-Verify
-   ↓
-Score
-   ↓
-Return structured evidence-grounded data
-```
+<br>
 
-This makes the system suitable as a foundation for larger lead enrichment and sales intelligence workflows.
+<a href="https://github.com/chandramouli9392">
+<img src="https://img.shields.io/badge/GitHub-ChandramouliBoppana-181717?style=for-the-badge&logo=github" />
+</a>
+
+</div>
 
 ---
 
-# License
+# ⭐ Support the Project
 
-The underlying DAVE project is released under the MIT License.
+If you find **BrioLeadEnricher** interesting:
 
-See:
+⭐ Star the repository
 
-```text
-LICENSE
-```
+🍴 Fork the project
 
-for the complete license text.
+🐛 Report issues
 
----
+💡 Suggest improvements
 
-# Original DAVE Documentation
-
-BrioLeadEnricher is built on top of DAVE, an AI-powered scraping and structured extraction engine.
-
-DAVE provides:
-
-* Zero-config extraction
-* Built-in extraction recipes
-* HTTP and Playwright fetching
-* Search
-* Multi-page crawling
-* Batch processing
-* Streaming extraction
-* Pydantic-first extraction
-* Semantic chunking
-* Cost tracking
-* Caching
-* Retry handling
-* Rate limiting
-* Plugin architecture
-* Multiple LLM providers
-* Local file/PDF processing
-* Stealth fetching
-* robots.txt support
-
-The SoftwareBrio enrichment workflow uses these capabilities as infrastructure while adding the assignment-specific autonomous lead enrichment layer.
+🤝 Contribute
 
 ---
 
-## Contributing
+<div align="center">
 
-Before opening a pull request, run:
+## ⚡ BrioLeadEnricher
 
-```bash
-pytest
-ruff check .
-python -m compileall dave
-```
+### Retrieve → Clean → Extract → Verify → Score
 
-Contributions should improve:
+**Turn company domains into evidence-grounded lead intelligence.**
 
-* Reliability
-* Extraction quality
-* Testing
-* Documentation
-* Developer experience
-* Domain-specific enrichment capabilities
+<br>
 
-```
-```
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=footer&animation=twinkling" width="100%"/>
+
+</div>
